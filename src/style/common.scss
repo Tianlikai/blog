@@ -1,0 +1,60 @@
+*, :after, :before{
+    box-sizing: border-box;
+}
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    font-family: 'PingFang SC', 'Monospaced Number', 'Chinese Quote', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'
+}
+
+body {
+    text-align: justify;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    font-family: Monospaced Number,Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(0,0,0,.65);
+    background-color: #fff;
+}
+
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
+
+a {
+    text-decoration: none;
+    &:hover, &:focus{
+        text-decoration: underline;
+    }
+    &:visited{
+        color: #909090;
+    }
+}
+@media (min-width: 769px) {
+    .hidden-m {
+        display: none !important
+    }
+    .hidden-s {
+        display: block !important
+    }
+}
+
+@media (max-width: 768px) {
+    .hidden-s {
+        display: none !important
+    }
+    .hidden-m {
+        display: block !important
+    }
+}

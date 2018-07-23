@@ -1,0 +1,12 @@
+.home {
+    font-size: .16rem;
+    padding-top: .8rem;
+    height: 100vh;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 768px) {
+    .home{
+        padding-top: .6rem;
+    }
+}

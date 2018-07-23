@@ -1,0 +1,54 @@
+.menu-item {
+    border-bottom: 1px solid #dedede;
+    line-height: 0.4rem;
+    font-size: 0.16rem;
+    font-weight: 500;
+    color: #333;
+    .title {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    a.title {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: #333;
+        text-decoration: none;
+    }
+    .arrow {
+        width: 0.1rem;
+        height: 0.2rem;
+        position: relative;
+        svg {
+            position: absolute;
+            width: 0.1rem;
+            height: 0.2rem;
+            fill: #333;
+            margin-left: 0;
+        }
+        display: inline-block;
+        vertical-align: middle;
+        // margin-left: 0.06rem;
+    }
+    .arrow-downup {
+        svg {
+            transform: rotate(180deg);
+            transition: transform 0.2s;
+        }
+
+    }
+    .arrow-updown {
+        svg {
+            transform: rotate(0);
+            transition: transform 0.2s;
+        }
+    }
+    .sub-menu {
+        color: #666;
+        font-weight: 400;
+        padding: 0 0.15rem;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}

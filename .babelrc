@@ -1,0 +1,22 @@
+{
+    "presets": [
+        "react",
+        [
+            "env",
+            {
+              "modules": false
+            }
+          ],
+        "stage-0"
+    ],
+    "plugins": [
+        "react-html-attrs",
+        "react-hot-loader/babel",
+        [
+            "transform-runtime",
+            {
+                "polyfill": false
+            }
+        ]
+    ]
+}

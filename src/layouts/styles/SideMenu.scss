@@ -1,0 +1,78 @@
+.side-menu {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    svg {
+        width:  0.22rem;
+        height: 0.18rem;
+        fill: #d4d4d4;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -0.09rem;
+        margin-left: -0.11rem;
+    }
+    .side-menu-blur {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 5;
+    }
+    .side-menu-content {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 2.6rem;
+        z-index: 10;
+        background: #fff;
+        padding-left: 0.26rem;
+    }
+    .side-menu-close {
+        width: 0.52rem;
+        height: 0.52rem;
+        position: absolute;
+        right: 0.05rem;
+        top: 0;
+        svg {
+            width: 0.22rem;
+            height: 0.22rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -0.11rem;
+            margin-left: -0.11rem;
+            fill: #515151;
+        }
+    }
+    .side-menu-items {
+        margin-top: 0.52rem;
+    }
+    .side-menu-apply {
+        width: 2rem;
+        height: 0.4rem;
+        border-radius: 0.2rem;
+        line-height: 0.4rem;
+        color: #fff;
+        font-size: 0.16rem;
+        text-align: center;
+        background: #ff9e16;
+        margin-top: 0.3rem;
+        display: block;
+    }
+    .side-menu-apply:active,
+    .side-menu-apply:focus {
+        background: #e28c13;
+    }
+    .side-menu-hide {
+        transform: translateX(-100%);
+        transition: transform 0.4s ease-in;
+    }
+    .side-menu-show {
+        transform: translateX(0);
+        transition: transform 0.4s ease-in;
+    }
+}

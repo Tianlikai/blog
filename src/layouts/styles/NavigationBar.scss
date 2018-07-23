@@ -1,0 +1,199 @@
+.navigation-bar {
+    height: 0.6rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    padding-right: 0.4rem;
+    background-color: transparent;
+    transition: background-color 0.6s ease-in;
+    border-bottom: 1px solid #f0f0f0;
+    .navigator-max{
+        margin: 0 auto;
+        width: 9.8rem;
+    }
+    .logo {
+        width: 1.8rem;
+        margin-left: 0.35rem;
+        margin-right: 0.4rem;
+        margin-top: 0.2rem;
+        float: left;
+    }
+    .menu-active {
+        // color: #fff !important;
+        color: #007fff !important;
+        text-decoration: none;
+        /**.menu-active-tag {
+            display: block;
+        }**/
+    }
+    .menu {
+        // color: #d4d4d4;
+        color: #71777c;
+        font-size: 0.18rem;
+        float: left;
+        height: 0.6rem;
+        line-height: 0.6rem;
+        padding: 0 0.2rem;
+        position: relative;
+        a {
+            // color: #d4d4d4;
+            color: #71777c;
+            text-decoration: none;
+        }
+        a:hover {
+            // color: #fff;
+            color: #007fff;
+        }
+        a:focus {
+            text-decoration: none;
+        }
+        a:active {
+            text-decoration: none;
+        }
+    }
+    /**.menu-active-tag {
+        display: none;
+        position: absolute;
+        bottom: 0.12rem;
+        left: 50%;
+        margin-left: -0.1rem;
+        width: 0.12rem;
+        height: 0.18rem;
+        border: 0.09rem solid;
+        box-sizing: border-box;
+        border-left-color: transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;  
+        border-bottom-color: #ff9e16;
+    }**/
+    .social {
+        float: right;
+        color: #d4d4d4;
+        line-height: 0.32rem;
+        margin: 0.26rem 0.2rem;
+        font-size: 0.18rem;
+        position: relative;
+        cursor: pointer;
+        svg {
+            fill: #d4d4d4;
+            height: 0.25rem;
+            width: 0.25rem;
+            margin-right: 6px;
+        }
+    }
+    .social:hover {
+        color: #fff;
+        svg {
+            fill: #fff;
+        }
+    }
+    .wechat {
+        svg {
+            width: 0.32rem;
+            height: 0.26rem;
+        }
+    }
+    .wechat:hover {
+        .qrcode-nav {
+            display: block;
+        }
+        svg {
+            fill: #fff;
+        }
+    }
+    .qrcode-nav {
+        display: none;
+        width: 2.12rem;
+        position: absolute;
+        height: 2.23rem !important;
+        right: -0.75rem;
+        top: 0.25rem;
+    }
+    .apply-button-active {
+        background: #e28c13 !important
+    }
+    .apply-button {
+        float: right;
+        width: 1rem;
+        height: 0.32rem;
+        background: #ff9e16;
+        color: #fff;
+        font-size: 0.18rem;
+        text-align: center;
+        border-radius: 0.16rem;
+        line-height: 0.32rem;
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 0.26rem;
+        margin-right: 0.2rem;
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+    .apply-button:hover {
+        background: #ffae3e;
+    }
+    .apply-button:focus {
+        background: #e28c13
+    }
+    .apply-button:active {
+        background: #e28c13;
+    }
+    .burger-btn {
+        display: none;
+    }
+}
+.navigation-bar-show {
+    // background-color: #262626;
+    background: white;
+    transition: background-color 0.6s ease-in;
+}
+
+@media (max-width: 769px) {
+    .navigation-bar {
+        height: 0.6rem;
+        padding-right: 0;
+        .logo {
+            width: 1.3rem;
+            margin: 0 auto;
+            display: block;
+            float: none;
+            margin-top: 0.16rem;
+        }
+        .burger-btn {
+            display: block;
+            width: 0.45rem;
+            height: 100%;
+            float: left;
+        }
+        .phone-btn {
+            display: block;
+            width: 0.45rem;
+            height: 100%;
+            float: right;
+            position: relative;
+            svg {
+                width: 0.23rem;
+                height: 0.21rem;
+                fill: #d4d4d4;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-top: -0.1rem;
+                margin-left: -0.1rem;
+            }
+        }
+        .menu {
+            display: none;
+        }
+        .social {
+            display: none;
+        }
+        .apply-button {
+            display: none;
+        }
+    }
+}

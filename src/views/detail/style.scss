@@ -1,0 +1,19 @@
+.detail {
+    font-size: .16rem;
+    padding-top: .8rem;
+    height: 100vh;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    .container{
+        margin: 0 auto;
+        width: 100%;
+        max-width: 9.8rem;
+        font-size: .16rem;
+        padding-top: .8rem;
+    }
+}
+@media (max-width: 768px) {
+    .detail{
+        padding-top: .6rem;
+    }
+}

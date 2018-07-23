@@ -1,0 +1,145 @@
+.article{
+    margin: 0 auto;    
+    width: 100%;
+    max-width: 7.8rem;    
+    font-size: .16rem;
+    padding-top: .4rem;
+    color: #9E9E9E;
+    .article-header{
+        color: #333333;
+        font-size: .22rem;
+    }
+    .article—list-title{
+        padding-bottom: .1rem;
+        border-bottom: 1px solid #eee;
+    }
+    .article-card{
+        &::before{
+            display: table;
+            content: '';
+        }
+        padding-top: .20rem;
+        padding-bottom: .20rem;
+        border-bottom: 1px solid #eee;
+        .article-logo-container{
+            float: right;
+            .article-logo{
+                width: 100px;
+                height: 80px;
+                border-radius: 4px;
+                margin-left: 30px;
+                margin-top: 10px;
+                background-size: cover;
+                background-position: center;
+            }
+        }
+        .article-title{
+            margin-top: .1rem;
+            margin-bottom: .1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
+            a{
+                font-size: 18px;
+                line-height: 18px;
+                color: #212121;
+                position: relative;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+        }
+        .article-content{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            /* autoprefixer: off*/
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on*/
+            line-height: 1.5;
+            color: #888;
+            margin-bottom: .1rem;
+            word-break: break-word;      
+        }
+        .article-footer{
+            font-size: 13px;
+            .footer-like{
+                vertical-align: baseline;
+            }
+            &::after{
+                content: '';                
+                display: table;
+                clear: both;
+            }
+            .footer-viewed, .footer-author, .footer-time{
+                margin-left: 10px;
+            }
+            .footer-author{
+                color: #666;
+            }
+        }
+        &::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+    }
+    &.none{
+        display: none;
+    }
+    .pager{
+        font-size: 18px;
+        height: 100px;
+        line-height: 100px;
+        margin: 0 auto;
+        text-align: center;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px){ // 按照 0.8 计算应该是960
+    .article{
+        width: 100%;
+        .article-card{
+            .article-card-img{
+                width: 18%;
+                &.wf, &.mzj, &.rb, &.hff, &.zhj, &.wxj{
+                    background-repeat: no-repeat ;
+                    background-size: contain;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+    .article{
+        width: 100%;
+        padding: 0 .15rem;
+        padding-top: .36rem;
+        .article-header{
+            color: #333333;
+            font-size: .15rem;
+        }
+        .article—list-title{
+            font-size: .2rem;
+            &::after{
+                margin-top: .1rem;
+            }
+        }
+        .article-card{
+            padding-top: .15rem;
+            padding-bottom: .15rem;
+            border-bottom: 1px solid #eee;
+            .article-title{
+                a{
+                    font-size: .16rem;
+                    line-height: .16rem;
+                }
+            }
+            .article-content{
+                font-size: .12rem;
+            }
+        }
+    }
+}
