@@ -2,15 +2,33 @@ import React from 'react'
 import marked from 'marked'
 import NavigationBar from '../../layouts/NavigationBar'
 import './style.scss'
-import 'highlight.js/styles/default.css'
 
 export default class Detail extends React.PureComponent {
     constructor(props) {
         super(props)
-        const md = localStorage.getItem('md')
         this.state = {
-            renderedContent: marked(md)
+            title: '',
+            content: '',
+            avator: '',
+            like: '',
+            md: '',
+            pv: ''
         }
+    }
+    componentDidMount() {
+        const urlArr = window.location.hash.split('/')
+        const postId = urlArr[(urlArr.length - 1)]
+        G.api.getPostsDetail({urlParams: {postId}}).then((result) => {
+            const {title, content, avator, like, md, pv} = result.data
+            this.setState({
+                content: marked(content),
+                title,
+                avator,
+                like,
+                md,
+                pv
+            })
+        })
     }
     render() {
         return (
@@ -19,7 +37,7 @@ export default class Detail extends React.PureComponent {
                 <div className='container'>
                     <div
                         className='markdown-rendered-content'
-                        dangerouslySetInnerHTML={{__html: this.state.renderedContent}} />
+                        dangerouslySetInnerHTML={{__html: this.state.content}} />
                 </div>
             </div>
         )
