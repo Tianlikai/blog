@@ -1,8 +1,8 @@
 import React from 'react'
-import history from '../../util/history'
+import history from '../../../util/history'
 import './styles.scss'
 
-export default class Introduction extends React.PureComponent {
+export default class Posts extends React.PureComponent {
     constructor(props) {
         super(props)
         this.state = {

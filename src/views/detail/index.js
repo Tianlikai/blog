@@ -2,6 +2,7 @@ import React from 'react'
 import marked from 'marked'
 import NavigationBar from '../../layouts/NavigationBar'
 import './style.scss'
+import 'highlight.js/styles/default.css'
 
 export default class Detail extends React.PureComponent {
     constructor(props) {

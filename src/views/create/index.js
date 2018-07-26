@@ -15,6 +15,16 @@ export default class create extends React.PureComponent {
         })
     }
     handlePublish = () => {
+        const data = {
+            uid: '',
+            name: '',
+            title: '',
+            pv: 0,
+            content: this.state.renderedContent,
+            md: 'md',
+            avator: ''
+        }
+        console.log(data)
         localStorage.setItem('md', this.state.renderedContent)
     }
     render() {

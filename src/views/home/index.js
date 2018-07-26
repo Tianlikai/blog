@@ -1,6 +1,6 @@
 import React from 'react'
 import NavigationBar from '../../layouts/NavigationBar'
-import Introduction from '../../components/Introduction'
+import Posts from './posts'
 import './style.scss'
 
 let lastPosition = 0
@@ -26,7 +26,7 @@ export default class About extends React.PureComponent {
                 }
             }}>
                 <NavigationBar transparent={!this.state.showNavBar} path='/' />
-                <Introduction isShow />
+                <Posts isShow />
             </div>
         )
     }
