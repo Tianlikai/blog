@@ -19,7 +19,7 @@ export default class Detail extends React.PureComponent {
         const urlArr = window.location.hash.split('/')
         const postId = urlArr[(urlArr.length - 1)]
         G.api.getPostsDetail({urlParams: {postId}}).then((result) => {
-            const {title, content, avator, like, md, pv} = result.data
+            const {title, content, avator, like, md, pv} = result
             this.setState({
                 content: marked(content),
                 title,

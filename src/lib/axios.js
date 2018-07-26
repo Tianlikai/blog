@@ -1,9 +1,10 @@
 import axios from 'axios'
-import api from '../settings/api'
+import api from './api'
 
 for (let key in api) {
     api[key] = fetch.bind(null, api[key])
 }
+
 const Axios = axios.create({
     baseURL: 'api',
     timeout: 30000,
@@ -29,21 +30,21 @@ function fetch(options, urlOptions) {
     }
     return new Promise((resolve, reject) => {
         Axios(options).then(response => {
-            const {code, data} = response.data
-
-            if (code === '0' && data) {
+            const {code, data, message} = response.data
+            if (code === 0 && data) {
                 resolve(data)
-            } else if (code && code !== '0') {
-                reject(response.data)
+            } else if (code && code !== 0) {
+                // 可以在此处对后端非正长返回 进行统一处理（注释掉reject函数 直接写容错处理函数）
+                // 如需要返回则通过options传入参数进行判断
+                reject(message)
             } else {
                 resolve(response.data)
             }
-            // console.log('axios data', data)
         }).catch(e => {
             console.error('error', e)
             if (e.response.status === 401) {
-                // Storage.del('token')
-                G.gotoSignIn()
+                // G.gotoSignIn()
+                alert('find me by copy whole this message 401')
             }
             reject(e.response.data)
         })

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import Routes from './views'
 import './style/common.scss'
-import './util/G'
+import './lib/G'
 
 function getInitStyle() {
     const clientWidth = window.document.documentElement.clientWidth

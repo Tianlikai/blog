@@ -12,7 +12,7 @@ export default class Posts extends React.PureComponent {
     componentDidMount() {
         G.api.getPosts({urlParams: {page: 1}}).then((result) => {
             this.setState({
-                data: result.data.postList
+                data: result.postList
             })
         })
     }
