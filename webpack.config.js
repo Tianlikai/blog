@@ -120,11 +120,32 @@ let wp = {
         publicPath: '/',
         contentBase: path.resolve(rootDir, 'dist'),
         compress: true,
-        historyApiFallback: false,
+        historyApiFallback: true,
         hot: true,
+        https: false,
         port: config.port,
         host: config.host,
-        open: true
+        clientLogLevel: 'none',
+        open: true,
+        stats: {color: true},
+        proxy: {
+            '/api/*': {
+                changeOrigin: true,
+                secure: false,
+                target: 'http://127.0.0.1:3000', // 随便写，但必须有
+                router: function(req) {
+                    let path = req.originalUrl
+                    let rePrefix = /^\/api\/(\d+)?/
+                    path = '/' + path.replace(rePrefix, '')
+                    let target = 'http://127.0.0.1:3000'
+                    console.log(`proxy: ${target}${path}`)
+                    return target + path
+                },
+                pathRewrite: function() {
+                    return ''
+                }
+            }
+        }
     }
 }
 
