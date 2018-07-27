@@ -20,19 +20,17 @@ export default class Posts extends React.PureComponent {
         history.push(`/detail/${id}`)
     }
     renderTeamCard = (card, i) => {
-        const {id, title, name, md, like, comments} = card
-        let content = card.content.length > 130 ? card.content.substring(0, 130) + '...' : card.content
-        const reg = /<[^>]+>/gim
-        content = content.replace(reg, '')
+        const {id, title, name, mdType, like, comments} = card
+        let md = card.md.length > 130 ? card.md.substring(0, 130) + '...' : card.md
         return <div key={id} className='article-card'>
-            <a onClick={this.redirectToDetail.bind(null, id, md)} className='article-logo-container' href='javascript:void(0)'>
+            <a onClick={this.redirectToDetail.bind(null, id, mdType)} className='article-logo-container' href='javascript:void(0)'>
                 <img className='article-logo' src={require('./images/me.png')} alt='loading' />
             </a>
             <div className='article-title'>
-                <a onClick={this.redirectToDetail.bind(null, id, md)}>{title}</a>
+                <a onClick={this.redirectToDetail.bind(null, id, mdType)}>{title}</a>
             </div>
             <div className='article-content'>
-                {content}
+                {md}
             </div>
             <div className='article-footer'>
                 <span className='footer-author'>
