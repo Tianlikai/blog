@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './styles/container.scss'
 
 export default class Container extends React.PureComponent {
@@ -9,4 +10,8 @@ export default class Container extends React.PureComponent {
             </div>
         )
     }
+}
+
+Container.propTypes = {
+    children: PropTypes.element
 }

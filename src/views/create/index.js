@@ -1,15 +1,15 @@
 import React from 'react'
 import marked from 'marked'
-import './style.scss'
+import Upload from './upload'
 import iconImg from './svg-img.svg'
 import iconImgActive from './svg-imgActive.svg'
-import Upload from './upload'
+import './style.scss'
 
-export default class create extends React.PureComponent {
+export default class Create extends React.PureComponent {
     constructor(props) {
         super(props)
         this.state = {
-            uploadIsShow: false,
+            uploadIsShow: true,
             title: '',
             content: '',
             mdContent: '',
@@ -31,7 +31,9 @@ export default class create extends React.PureComponent {
         })
     }
     handleShowUpload = () => {
-        this.setState({uploadIsShow: !this.state.uploadIsShow})
+        // this.setState({
+        //     uploadIsShow: !this.state.uploadIsShow
+        // })
     }
     handlePublish = () => {
         const uid = G.uid
@@ -67,19 +69,34 @@ export default class create extends React.PureComponent {
         return (
             <div className='create'>
                 <div className='create-header'>
-                    <input onChange={this.handleTitleChange} className='inp-title' type='text' placeholder='输入文章标题...' />
+                    <input
+                        className='inp-title'
+                        type='text'
+                        placeholder='输入文章标题...'
+                        onChange={this.handleTitleChange}
+                    />
                     <div className='header-right'>
-                        <div className='header-save'>文章将会自动保存至<span>草稿</span></div>
+                        <div className='header-save'>
+                            文章将会自动保存至
+                            <span>草稿</span>
+                        </div>
                         <div
                             className='header-add-logo'
-                            onClick={this.handleShowUpload} >
+                            onClick={this.handleShowUpload}
+                        >
                             <img src={src} />
-                            {uploadIsShow && <Upload />}
+                            {
+                                uploadIsShow && <Upload />
+                            }
                         </div>
-                        <div className='header-switch'>...</div>
+                        <div className='header-switch'>
+                            ...
+                        </div>
                         <div
                             className='header-push-trigger'
-                            onClick={this.handlePublish}>发布</div>
+                            onClick={this.handlePublish}>
+                            发布
+                        </div>
                         <div className='header-logo' />
                     </div>
                 </div>
@@ -90,10 +107,12 @@ export default class create extends React.PureComponent {
                     <div className='view'>
                         <div
                             className='markdown-rendered-content'
-                            dangerouslySetInnerHTML={{__html: this.state.content}} />
+                            dangerouslySetInnerHTML={{__html: this.state.content}}
+                        />
                     </div>
                 </div>
             </div>
         )
     }
 }
+

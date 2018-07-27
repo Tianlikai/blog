@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import history from '../../../util/history'
 import './styles.scss'
 
@@ -10,24 +11,43 @@ export default class Posts extends React.PureComponent {
         }
     }
     componentDidMount() {
-        G.api.getPosts({urlParams: {page: 1}}).then((result) => {
-            this.setState({
-                data: result.postList
+        G.api.getPosts({urlParams: {page: 1}})
+            .then((result) => {
+                this.setState({
+                    data: result.postList
+                })
             })
-        })
     }
     redirectToDetail = (id) => {
         history.push(`/detail/${id}`)
     }
     renderTeamCard = (card, i) => {
-        const {id, title, name, mdType, like, comments} = card
+        const {
+            id,
+            title,
+            name,
+            mdType,
+            like,
+            comments
+        } = card
         let md = card.md.length > 130 ? card.md.substring(0, 130) + '...' : card.md
-        return <div key={id} className='article-card'>
-            <a onClick={this.redirectToDetail.bind(null, id, mdType)} className='article-logo-container' href='javascript:void(0)'>
-                <img className='article-logo' src={require('./images/me.png')} alt='loading' />
+        return <div
+            className='article-card'
+            key={id}>
+            <a
+                className='article-logo-container'
+                href='javascript:void(0)'
+                onClick={this.redirectToDetail.bind(null, id, mdType)}>
+                <img
+                    className='article-logo'
+                    src={require('./images/me.png')}
+                    alt='loading'
+                />
             </a>
             <div className='article-title'>
-                <a onClick={this.redirectToDetail.bind(null, id, mdType)}>{title}</a>
+                <a onClick={this.redirectToDetail.bind(null, id, mdType)}>
+                    {title}
+                </a>
             </div>
             <div className='article-content'>
                 {md}
@@ -60,9 +80,19 @@ export default class Posts extends React.PureComponent {
             <div className={classIntro}>
                 {/* <div className='introduct-header'></div> */}
                 <div className='article—list-title'>---</div>
-                {data && data.map(this.renderTeamCard)}
-                {data && data.length > 0 && <div className='pager'>more</div>}
+                {
+                    data && data.map(this.renderTeamCard)
+                }
+                {
+                    data && data.length > 0 && <div className='pager'>
+                        more
+                    </div>
+                }
             </div>
         )
     }
+}
+
+Posts.PropTypes = {
+    isShow: PropTypes.bool // 是否展示banner
 }

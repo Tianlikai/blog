@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 import classnames from 'classnames'
 import './styles/MenuItem.scss'
@@ -11,33 +12,72 @@ export default class MenuItem extends React.PureComponent {
         }
     }
     toggleSubMenu() {
-        this.setState({showSubMenu: !this.state.showSubMenu})
+        this.setState({
+            showSubMenu: !this.state.showSubMenu
+        })
     }
     render() {
-        const submenus = this.props.submenus
+        const {
+            subMenus,
+            showSubMenu,
+            title,
+            link,
+            callback
+        } = this.props
         return (
-            <div className='menu-item' onClick={submenus && this.toggleSubMenu}>
-                {!submenus && <Link className='title' to={this.props.link} onClick={(e) => {
-                    e.stopPropagation()
-                    this.props.callback && this.props.callback()
-                }}>{this.props.title}</Link>}
-                {submenus && <div className='title'>{this.props.title}</div>}
-                {this.props.submenus && <span className={classnames({
-                    'arrow': true,
-                    'arrow-downup': this.state.showSubMenu,
-                    'arrow-updown': !this.state.showSubMenu
-                })}>
-                    <svg class='icon' aria-hidden='true'>
-                        <use xlinkHref='#icon-official-arrow' />
-                    </svg>
-                </span>}
-                {this.state.showSubMenu && submenus && submenus.map((submenu) => (
-                    <Link onClick={(e) => {
-                        e.stopPropagation()
-                        this.props.callback && this.props.callback()
-                    }} className='sub-menu' key={submenu.title} to={submenu.link}>{submenu.title}</Link>
-                ))}
+            <div
+                className='menu-item'
+                onClick={subMenus && this.toggleSubMenu}>
+                {
+                    !subMenus && <Link
+                        className='title'
+                        to={link}
+                        onClick={(e) => {
+                            e.stopPropagation()
+                            callback && callback()
+                        }}>
+                        {title}
+                    </Link>
+                }
+                {
+                    subMenus && <div className='title'>
+                        {title}
+                    </div>
+                }
+                {
+                    subMenus && <span className={classnames({
+                        'arrow': true,
+                        'arrow-downup': showSubMenu,
+                        'arrow-updown': !showSubMenu
+                    })}>
+                        <svg class='icon' aria-hidden='true'>
+                            <use xlinkHref='#icon-official-arrow' />
+                        </svg>
+                    </span>
+                }
+                {
+                    showSubMenu && subMenus && subMenus.map((subMenu) => (
+                        <Link
+                            onClick={(e) => {
+                                e.stopPropagation()
+                                callback && callback()
+                            }}
+                            className='sub-menu'
+                            key={subMenu.title}
+                            to={subMenu.link}>
+                            {subMenu.title}
+                        </Link>
+                    ))
+                }
             </div>
         )
     }
+}
+
+MenuItem.PropTypes = {
+    subMenus: PropTypes.array, // 子目录
+    showSubMenu: PropTypes.bool, // 是否展示该目录导航
+    title: PropTypes.string, // 目录名称
+    link: PropTypes.string, // 点击目录 链接地址
+    callback: PropTypes.func // 点击目录 回调函数
 }

@@ -1,17 +1,23 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types'
 import classnames from 'classnames'
+import {Link} from 'react-router-dom'
 import SideMenu from './SideMenu'
 import './styles/NavigationBar.scss'
 
 export default class NavigationBar extends React.PureComponent {
     render() {
-        const {path} = this.props
+        const {
+            path,
+            transparent
+        } = this.props
         return (
-            <div ref='navigator' className={classnames({
-                'navigation-bar': true,
-                'navigation-bar-show': !this.props.transparent
-            })}>
+            <div
+                ref='navigator'
+                className={classnames({
+                    'navigation-bar': true,
+                    'navigation-bar-show': !transparent
+                })}>
                 <div className='burger-btn'>
                     <SideMenu />
                 </div>
@@ -49,4 +55,9 @@ export default class NavigationBar extends React.PureComponent {
             </div>
         )
     }
+}
+
+NavigationBar.PropTypes = {
+    path: PropTypes.string, // 导航跳转路径
+    transparent: PropTypes.bool // 导航栏是否透明
 }
