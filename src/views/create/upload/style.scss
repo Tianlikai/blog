@@ -1,0 +1,27 @@
+.upload{
+    position: absolute;
+    height: 1.5rem;
+    width: 3rem;
+    border: .01rem solid #ddd;
+    border-bottom-left-radius: .02rem;
+    border-bottom-right-radius: .02rem;
+    top: .59rem;
+    right: .6rem;
+    z-index: 20;
+    background: white;
+    &::before{
+        content: "";
+        position: absolute;
+        margin-left: -.05rem;
+        top: -.06rem;
+        left: 50%;
+        width: .11rem;
+        height: .11rem;
+        background-color: #fff;
+        border: .01rem solid #ddd;
+        border-right: none;
+        border-bottom: none;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}

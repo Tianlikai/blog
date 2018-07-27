@@ -10,8 +10,8 @@ function getInitStyle() {
     let width
     if (clientWidth < 500) {
         width = clientWidth
-    } else if (clientWidth <= 1440) {
-        width = 375 * (clientWidth / 1440)
+    } else if (clientWidth <= 1024) {
+        width = 375 * (clientWidth / 1024)
     } else {
         width = 375
     }

@@ -21,7 +21,7 @@ export default class Posts extends React.PureComponent {
     }
     renderTeamCard = (card, i) => {
         const {id, title, name, md, like, comments} = card
-        let content = card.content.length > 100 ? card.content.substring(0, 100) + '...' : card.content
+        let content = card.content.length > 130 ? card.content.substring(0, 130) + '...' : card.content
         const reg = /<[^>]+>/gim
         content = content.replace(reg, '')
         return <div key={id} className='article-card'>

@@ -1,14 +1,19 @@
 import React from 'react'
 import marked from 'marked'
 import './style.scss'
+import iconImg from './svg-img.svg'
+import iconImgActive from './svg-imgActive.svg'
+import Upload from './upload'
 
 export default class create extends React.PureComponent {
     constructor(props) {
         super(props)
         this.state = {
+            uploadIsShow: false,
             title: '',
             content: '',
-            md: 'md', // 编辑模式 富文本: f markdown：md
+            mdContent: '',
+            mdType: 'md', // 编辑模式 富文本: f markdown：md
             avator: '' // 文章封面
         }
     }
@@ -21,8 +26,12 @@ export default class create extends React.PureComponent {
     handleContentChange = (e) => {
         e.stopPropagation()
         this.setState({
-            content: marked(e.target.value)
+            content: marked(e.target.value),
+            mdContent: e.target.value
         })
+    }
+    handleShowUpload = () => {
+        this.setState({uploadIsShow: !this.state.uploadIsShow})
     }
     handlePublish = () => {
         const uid = G.uid
@@ -31,7 +40,7 @@ export default class create extends React.PureComponent {
             alert('开发中\n请前往登陆')
             return false
         }
-        const {title, content, md, avator} = this.state
+        const {title, content, mdContent, mdType, avator} = this.state
         if (!title) {
             alert('开发中\n请输入标题')
             return false
@@ -44,7 +53,8 @@ export default class create extends React.PureComponent {
             pv: 0,
             title,
             content,
-            md,
+            mdContent,
+            mdType,
             avator
         }
         G.api.createPosts({data}).then((result) => {
@@ -52,13 +62,20 @@ export default class create extends React.PureComponent {
         })
     }
     render() {
+        const {uploadIsShow, avator} = this.state
+        const src = avator ? iconImgActive : iconImg
         return (
             <div className='create'>
                 <div className='create-header'>
                     <input onChange={this.handleTitleChange} className='inp-title' type='text' placeholder='输入文章标题...' />
                     <div className='header-right'>
                         <div className='header-save'>文章将会自动保存至<span>草稿</span></div>
-                        <div className='header-add-logo'>添加封面</div>
+                        <div
+                            className='header-add-logo'
+                            onClick={this.handleShowUpload} >
+                            <img src={src} />
+                            {uploadIsShow && <Upload />}
+                        </div>
                         <div className='header-switch'>...</div>
                         <div
                             className='header-push-trigger'

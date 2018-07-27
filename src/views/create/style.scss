@@ -3,7 +3,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        border-bottom: 1px solid #ddd;
+        border-bottom: .01rem solid #ddd;
         height: .6rem;
         padding: 0 .21rem;
         .inp-title{
@@ -24,31 +24,36 @@
                 font-size: .16rem;
                 white-space:nowrap;
                 color: #ddd;
+                margin-right: .1rem;
                 cursor: pointer;
                 span{
                     display: inline-block;
-                    border: 1px solid #ddd;
+                    border: .01rem solid #ddd;
                     padding: .03rem .06rem;
                     margin: 0 .06rem;
-                    border-radius: 2px;
+                    border-radius: .02rem;
                 }
             }
             .header-add-logo{
                 cursor: pointer;
                 font-size: .16rem;
                 color: #007fff;
-                padding: 0 .14rem;
+                .svg-img{
+                    height: .2rem;
+                    width: .2rem;
+                }
             }
             .header-switch{
                 cursor: pointer;
                 font-size: .16rem;
-                padding: 0 .14rem;
             }
             .header-push-trigger{
                 font-size: .16rem;
                 color: #007fff;
                 cursor: pointer;
-                padding: 0 .14rem;
+            }
+            .header-add-logo, .header-switch, .header-push-trigger{
+                padding: 0 .2rem;
             }
             .header-logo{
                 height: .35rem;
@@ -57,7 +62,6 @@
                 background: url('../home/posts//images/me.png') no-repeat;
                 background-size: cover;
                 cursor: pointer;
-                padding: 0 .14rem;
             }
         }
     }
@@ -72,9 +76,9 @@
         .write{
             background: #f8f9fa;
             flex: 1 1 50%;
-            border-right: 1px solid #ddd;
+            border-right: .01rem solid #ddd;
             textarea{
-                padding: 20px 8px;
+                padding: .2rem .08rem;
                 background: #f8f9fa;
                 height: 100%;
                 width: 100%;
@@ -87,7 +91,7 @@
             }
         }
         .view{
-            padding: 0 8px;
+            padding: 0 .08rem;
             flex: 1 1 50%;
             overflow-y: scroll;
             height: auto;
