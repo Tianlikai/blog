@@ -74,7 +74,7 @@ export default class MenuItem extends React.PureComponent {
     }
 }
 
-MenuItem.PropTypes = {
+MenuItem.propTypes = {
     subMenus: PropTypes.array, // 子目录
     showSubMenu: PropTypes.bool, // 是否展示该目录导航
     title: PropTypes.string, // 目录名称

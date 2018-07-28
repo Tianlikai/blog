@@ -57,7 +57,7 @@ export default class NavigationBar extends React.PureComponent {
     }
 }
 
-NavigationBar.PropTypes = {
+NavigationBar.propTypes = {
     path: PropTypes.string, // 导航跳转路径
     transparent: PropTypes.bool // 导航栏是否透明
 }
