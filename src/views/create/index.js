@@ -9,7 +9,7 @@ export default class Create extends React.PureComponent {
     constructor(props) {
         super(props)
         this.state = {
-            uploadIsShow: true,
+            uploadIsShow: false,
             title: '',
             content: '',
             mdContent: '',
@@ -19,21 +19,30 @@ export default class Create extends React.PureComponent {
     }
     handleTitleChange = (e) => {
         e.stopPropagation()
+        e.nativeEvent.stopImmediatePropagation()
         this.setState({
             title: e.target.value
         })
     }
     handleContentChange = (e) => {
         e.stopPropagation()
+        e.nativeEvent.stopImmediatePropagation()
         this.setState({
             content: marked(e.target.value),
             mdContent: e.target.value
         })
     }
-    handleShowUpload = () => {
-        // this.setState({
-        //     uploadIsShow: !this.state.uploadIsShow
-        // })
+    handleShowUpload = e => {
+        e && e.stopPropagation && e.stopPropagation()
+        e && e.nativeEvent && e.nativeEvent.stopImmediatePropagation()
+        this.setState({
+            uploadIsShow: !this.state.uploadIsShow
+        })
+    }
+    handleAvatorChange = (value) => {
+        this.setState({
+            avator: value
+        })
     }
     handlePublish = () => {
         const uid = G.uid
@@ -57,7 +66,7 @@ export default class Create extends React.PureComponent {
             content,
             mdContent,
             mdType,
-            avator
+            avator: avator
         }
         G.api.createPosts({data}).then((result) => {
             console.log(result)
@@ -85,9 +94,11 @@ export default class Create extends React.PureComponent {
                             onClick={this.handleShowUpload}
                         >
                             <img src={src} />
-                            {
-                                uploadIsShow && <Upload />
-                            }
+                            <Upload
+                                avator={avator}
+                                uploadIsShow={uploadIsShow}
+                                handleShowUpload={this.handleShowUpload}
+                                handleAvatorChange={this.handleAvatorChange} />
                         </div>
                         <div className='header-switch'>
                             ...

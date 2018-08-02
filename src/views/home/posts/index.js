@@ -41,6 +41,7 @@ export default class Posts extends React.PureComponent {
                         mdType={card.mdType}
                         like={card.like}
                         comments={card.comments}
+                        avator={card.avator}
                         redirectToDetail={this.redirectToDetail}
                     />)
                 }

@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './style.scss'
 
+const commonUrl = '../../../../../../serverKoa/static/images/'
+
 const Name = (props) =>
     <span className='footer-author'>
         {props.name}
@@ -39,8 +41,10 @@ export default class PostsCard extends React.PureComponent {
             name,
             mdType,
             like,
+            avator,
             comments
         } = this.props
+        console.log(`${commonUrl}${avator}`)
         const md = this.props.md.length > 130 ? this.props.md.substring(0, 130) + '...' : this.props.md
         return <div
             className='article-card'
@@ -51,7 +55,7 @@ export default class PostsCard extends React.PureComponent {
                 onClick={this.redirectToDetail.bind(null, id, mdType)}>
                 <img
                     className='article-logo'
-                    src={require('../images/me.png')}
+                    src={import(`${commonUrl}${avator}`)}
                     alt='loading'
                 />
             </a>
@@ -74,6 +78,7 @@ PostsCard.propTypes = {
     id: PropTypes.number, // 文章id
     title: PropTypes.string, // 文章标题
     name: PropTypes.string, // 作者名称
+    avator: PropTypes.string, // 封面地址
     mdType: PropTypes.string, // mark类型 markDown或者富文本
     like: PropTypes.string, // 被点赞次数
     comments: PropTypes.string, // 评论数

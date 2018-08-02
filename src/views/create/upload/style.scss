@@ -1,14 +1,16 @@
 .upload{
     position: absolute;
-    height: 1.5rem;
+    height: auto;
     width: 3rem;
     border: .01rem solid #ddd;
     border-bottom-left-radius: .02rem;
     border-bottom-right-radius: .02rem;
     top: .59rem;
     right: .6rem;
+    padding: .24rem;
     z-index: 20;
     background: white;
+    cursor: default;
     &::before{
         content: "";
         position: absolute;
@@ -24,4 +26,49 @@
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg);
     }
+    .upload-hint{
+        font-size: .18rem;
+        margin-bottom: .14rem;
+        font-weight: 700;
+        color: hsla(218,9%,51%,.8);
+    }
+    .upload-inp{
+        display: none;
+    }
+    .upload-label{
+        height: .8rem;
+        font-size: .16rem;
+        line-height: .8rem;
+        text-align: center;
+        color: rgba(51,51,51,.4);
+        background-color: hsla(0,0%,87%,.6);
+        border: none;
+        outline: none;
+        cursor: pointer;
+        &:hover{
+            background-color: hsla(0,0%,87%,.8);
+        }
+    }
+    .inp-file-img{
+        width: 2.52rem;
+    }
+    .inp-file-del{
+        position: absolute;
+        top: .1rem;
+        right: .1rem;
+        color: #fff;
+        background: rgba(0,0,0,.5);
+        height: .25rem;
+        width: .25rem;
+        border-radius: .02rem;
+        font-size: .2rem;
+        font-family: "Ionicons";
+        cursor: pointer;
+        &:hover{
+            background: #000;
+        }
+    }
+}
+.upload.none{
+    display: none;
 }
