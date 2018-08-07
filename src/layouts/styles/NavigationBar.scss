@@ -7,7 +7,7 @@
     z-index: 200;
     padding-right: 0.4rem;
     background-color: transparent;
-    transition: background-color 0.6s ease-in;
+    // transition: background-color 0.6s ease-in;
     border-bottom: 1px solid #f0f0f0;
     .navigator-max{
         margin: 0 auto;
@@ -149,7 +149,7 @@
 .navigation-bar-show {
     // background-color: #262626;
     background: white;
-    transition: background-color 0.6s ease-in;
+    // transition: background-color 0.6s ease-in;
 }
 
 @media (max-width: 769px) {
